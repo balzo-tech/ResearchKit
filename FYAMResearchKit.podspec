@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.swift_version = '5'
   s.module_map = "ResearchKit/ResearchKit.modulemap"
+  s.module_name = 'ResearchKit'
 end

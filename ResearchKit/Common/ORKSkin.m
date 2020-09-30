@@ -33,6 +33,7 @@
 
 #import "ORKHelpers_Internal.h"
 
+NSString *const ORKCheckMarkTintColorKey = @"ORKCheckMarkTintColorKey";
 NSString *const ORKAlertActionTintColorKey = @"ORKAlertActionTintColorKey";
 NSString *const ORKSignatureColorKey = @"ORKSignatureColorKey";
 NSString *const ORKBackgroundColorKey = @"ORKBackgroundColorKey";
@@ -140,15 +141,16 @@ static NSMutableDictionary *colors() {
         }
 
         colors = [@{
-                    ORKAlertActionTintColorKey: [UIColor colorWithRed:0.0 green:122.0 / 255.0 blue:1.0 alpha:1.0],
+                    ORKCheckMarkTintColorKey: UIColor.systemBlueColor,
+                    ORKAlertActionTintColorKey: UIColor.systemBlueColor,
                     ORKSignatureColorKey: ORKRGB(0x000000),
                     ORKBackgroundColorKey: backgroundColor,
                     ORKConsentBackgroundColorKey: ORKRGB(0xffffff),
-                    ORKToolBarTintColorKey: ORKRGB(0xffffff),
+                    ORKToolBarTintColorKey: UIColor.systemBlueColor,
                     ORKLightTintColorKey: ORKRGB(0xeeeeee),
                     ORKDarkTintColorKey: ORKRGB(0x888888),
                     ORKCaptionTextColorKey: ORKRGB(0xcccccc),
-                    ORKBlueHighlightColorKey: [UIColor colorWithRed:0.0 green:122.0 / 255.0 blue:1.0 alpha:1.0],
+                    ORKBlueHighlightColorKey: UIColor.systemBlueColor,
                     ORKChartDefaultTextColorKey: [UIColor lightGrayColor],
                     ORKGraphAxisColorKey: [UIColor colorWithRed:217.0 / 255.0 green:217.0 / 255.0 blue:217.0 / 255.0 alpha:1.0],
                     ORKGraphAxisTitleColorKey: [UIColor colorWithRed:142.0 / 255.0 green:142.0 / 255.0 blue:147.0 / 255.0 alpha:1.0],

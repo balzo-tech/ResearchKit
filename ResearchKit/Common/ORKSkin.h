@@ -35,6 +35,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// Color used for checkmarks
+ORK_EXTERN NSString *const ORKCheckMarkTintColorKey;
+
 /// Color used for alert action default and cancel buttons
 ORK_EXTERN NSString *const ORKAlertActionTintColorKey;
 

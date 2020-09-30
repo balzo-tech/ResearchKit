@@ -35,6 +35,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// Color used for alert action default and cancel buttons
+ORK_EXTERN NSString *const ORKAlertActionTintColorKey;
+
 /// Color used for toolbar
 ORK_EXTERN NSString *const ORKToolBarTintColorKey;
 

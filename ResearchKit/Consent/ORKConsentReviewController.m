@@ -211,7 +211,7 @@ static const CGFloat iPadStepTitleLabelFontSize = 50.0;
             [self doAck];
         });
     }]];
-    
+    alert.view.tintColor = ORKColor(ORKAlertActionTintColorKey);
     [self presentViewController:alert animated:YES completion:nil];
 }
 

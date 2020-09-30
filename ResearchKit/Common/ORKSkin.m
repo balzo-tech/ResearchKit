@@ -107,6 +107,9 @@ CGFloat ORKEffectViewOpacityVisible = 1.0;
 
 CGFloat CheckmarkViewDimension = 25.0;
 
+CGFloat ORKBorderedButtonCornerRadius = 14.0;
+BOOL ORKBorderedButtonShouldApplyDefaultShadow = NO;
+
 @implementation UIColor (ORKColor)
 
 #define ORKCachedColorMethod(m, r, g, b, a) \

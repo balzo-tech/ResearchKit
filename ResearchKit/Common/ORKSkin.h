@@ -161,6 +161,12 @@ ORK_EXTERN CGFloat ORKEffectViewOpacityVisible;
 /// Checkmark View dimension
 ORK_EXTERN CGFloat CheckmarkViewDimension;
 
+///  Bordered Button cornder radius
+ORK_EXTERN CGFloat ORKBorderedButtonCornerRadius;
+
+///  Bordered Button apply default shadow
+ORK_EXTERN BOOL ORKBorderedButtonShouldApplyDefaultShadow;
+
 /// Modify the color for a specified ORK...ColorKey. (for customization)
 void ORKColorSetColorForKey(NSString *key, UIColor *color);
 

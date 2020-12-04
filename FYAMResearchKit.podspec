@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'FYAMResearchKit'
-  s.version      = '2.2.0'
+  s.version      = '2.3.0'
   s.summary      = 'ResearchKit is an open source software framework that makes it easy to create apps for medical research or for other research projects.'
   s.homepage     = 'https://github.com/balzo-tech/ResearchKit'
   s.documentation_url = 'http://researchkit.github.io/docs/'

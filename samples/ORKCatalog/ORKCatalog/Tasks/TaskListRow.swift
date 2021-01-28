@@ -82,7 +82,9 @@ enum TaskListRow: Int, CustomStringConvertible {
     case frontFacingCamera
     case wait
     case PDFViewer
+    #if HEALTHKIT
     case requestPermissions
+    #endif
     case eligibilityTask
     case consent
     case accountCreation
@@ -138,6 +140,7 @@ enum TaskListRow: Int, CustomStringConvertible {
                     .groupedForm,
                     .survey
                 ]),
+            
             TaskListRowSection(title: "Survey Questions", rows:
                 [
                     .booleanQuestion,
@@ -161,8 +164,9 @@ enum TaskListRow: Int, CustomStringConvertible {
                     .frontFacingCamera,
                     .wait,
                     .PDFViewer,
-                    .requestPermissions
+                    //.requestPermissions
                 ]),
+                
             TaskListRowSection(title: "Onboarding", rows:
                 [
                     .eligibilityTask,
@@ -282,8 +286,10 @@ enum TaskListRow: Int, CustomStringConvertible {
         case .PDFViewer:
             return NSLocalizedString("PDF Viewer Step", comment: "")
             
+        #if HEALTHKIT
         case .requestPermissions:
             return NSLocalizedString("Request Permissions Step", comment: "")
+        #endif
 
         case .eligibilityTask:
             return NSLocalizedString("Eligibility Task Example", comment: "")
@@ -659,8 +665,10 @@ enum TaskListRow: Int, CustomStringConvertible {
         case .PDFViewer:
             return PDFViewerTask
             
+        #if HEALTHKIT
         case .requestPermissions:
             return requestPermissionsTask
+        #endif
         
         case .eligibilityTask:
             return eligibilityTask
@@ -1012,6 +1020,7 @@ enum TaskListRow: Int, CustomStringConvertible {
         
         step3.text = "USC system"
 
+#if HEALTHKIT
         let answerFormat4 = ORKHealthKitQuantityTypeAnswerFormat(quantityType: HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!, unit: HKUnit.meterUnit(with: .centi), style: .decimal)
         
         let step4 = ORKQuestionStep(identifier: String(describing: Identifier.heightQuestionStep4), title: NSLocalizedString("Height", comment: ""), question: exampleQuestionText, answer: answerFormat4)
@@ -1019,6 +1028,9 @@ enum TaskListRow: Int, CustomStringConvertible {
         step4.text = "HealthKit, height"
         
         return ORKOrderedTask(identifier: String(describing: Identifier.heightQuestionTask), steps: [step1, step2, step3, step4])
+#else
+    return ORKOrderedTask(identifier: String(describing: Identifier.heightQuestionTask), steps: [step1, step2, step3])
+#endif
     }
 
     /// This task demonstrates a question asking for the user weight.
@@ -1059,6 +1071,7 @@ enum TaskListRow: Int, CustomStringConvertible {
         
         step6.text = "USC system, high precision"
 
+#if HEALTHKIT
         let answerFormat7 = ORKHealthKitQuantityTypeAnswerFormat(quantityType: HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!, unit: HKUnit.gramUnit(with: .kilo), style: .decimal)
         
         let step7 = ORKQuestionStep(identifier: String(describing: Identifier.weightQuestionStep7), title: NSLocalizedString("Weight", comment: ""), question: exampleQuestionText, answer: answerFormat7)
@@ -1066,6 +1079,9 @@ enum TaskListRow: Int, CustomStringConvertible {
         step7.text = "HealthKit, body mass"
 
         return ORKOrderedTask(identifier: String(describing: Identifier.weightQuestionTask), steps: [step1, step2, step3, step4, step5, step6, step7])
+#else
+        return ORKOrderedTask(identifier: String(describing: Identifier.weightQuestionTask), steps: [step1, step2, step3, step4, step5, step6])
+#endif
     }
     
     /**
@@ -1410,6 +1426,8 @@ enum TaskListRow: Int, CustomStringConvertible {
         return ORKOrderedTask(identifier: String(describing: Identifier.pdfViewerTask), steps: [PDFViewerStep])
     }
     
+    #if HEALTHKIT
+    
     private var requestPermissionsTask: ORKTask {
         let healthKitTypesToWrite: Set<HKSampleType> = [
             HKObjectType.quantityType(forIdentifier: .bodyMassIndex)!,
@@ -1433,6 +1451,8 @@ enum TaskListRow: Int, CustomStringConvertible {
         
         return ORKOrderedTask(identifier: String(describing: Identifier.requestPermissionsStep), steps: [requestPermissionsStep])
     }
+    
+    #endif
     
     /**
     A task demonstrating how the ResearchKit framework can be used to determine

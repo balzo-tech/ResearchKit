@@ -620,6 +620,8 @@ static const NSInteger kNumberOfSamples = 5;
     XCTAssertTrue([recorder isKindOfClass:recorderClass], @"");
 }
 
+#ifdef HEALTHKIT
+
 - (void)testHealthQuantityTypeRecorder {
     
     HKUnit *bpmUnit = [[HKUnit countUnit] unitDividedByUnit:[HKUnit minuteUnit]];
@@ -630,5 +632,7 @@ static const NSInteger kNumberOfSamples = 5;
     
     XCTAssertTrue([recorder isKindOfClass:recorderClass], @"");
 }
+
+#endif
 
 @end
